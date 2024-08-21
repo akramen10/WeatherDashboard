@@ -14,6 +14,9 @@ response = requests.get(complete_url)
 # Convert the response to JSON format
 data = response.json()
 
+#Debugging: Print out the entire response data
+#print(data)
+
 if data["cod"] != "404":
     main = data["main"]
     weather = data["weather"][0]
@@ -21,6 +24,5 @@ if data["cod"] != "404":
     print(f"Temperature: {main['temp']}°F")
     print(f"Weather: {weather['description']}")
     print(f"Humidity: {main['humidity']}%")
-    print(f"Wind Speed: {wind['speed']} mph")
 else:
     print("City not found!")
